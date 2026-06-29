@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyên Đề Đảo Ngữ So/Such That - Ms Lê Hằng English</title>
+    <!-- Tích hợp Google Fonts tròn trịa, thân thiện chuẩn Duolingo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Quicksand:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #8854C0, #FDCB6E, #00C9A7, #E84393);
+            --correct-color: #00D26A;
+            --wrong-color: #FF4757;
+            --text-main: #2D3436;
+            --card-bg: rgba(255, 255, 255, 0.96);
+        }
+
+        body {
+            font-family: 'Quicksand', 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            color: var(--text-main);
+            background: var(--primary-gradient);
+            background-size: 400% 400%;
+            animation: loangMauNenChuyenDong 20s ease infinite;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes loangMauNenChuyenDong {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Lớp họa tiết SVG vui nhộn chuyển động lơ lửng độc lập */
+        .pattern-overlay-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><g fill='%23FFFFFF'><path d='M20,20 L26,32 L38,34 L29,42 L32,54 L20,47 L8,54 L11,42 L2,34 L14,32 Z'/><circle cx='120' cy='40' r='10'/><path d='M40,110 C40,98 60,92 80,104 C100,92 120,98 120,110 C120,122 40,122 40,110 Z' opacity='0.6'/><path d='M130,120 Q142,102 154,120 T166,120' stroke='%23FFFFFF' stroke-width='3' fill='none'/></g></svg>");
+            animation: movingBackgroundPattern 35s linear infinite;
+        }
+
+        @keyframes movingBackgroundPattern {
+            from { background-position: 0 0; }
+            to { background-position: 320px 640px; }
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.94);
+            padding: 6px 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.08);
+            margin-bottom: 15px;
+            border: 2px solid #8854C0;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 0.95rem;
+            color: #8854C0;
+            margin: 0;
+            font-weight: 900;
+        }
+
+        .important-notice-box {
+            background: #FFF9E6;
+            border: 4px dashed #FDCB6E;
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 0 rgba(253, 203, 110, 0.3);
+            text-align: center;
+        }
+
+        .notice-title {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: #D35400;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .notice-content {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #2D3436;
+            font-weight: 700;
+        }
+
+        .notice-footer {
+            font-style: italic;
+            color: #8854C0;
+            margin-top: 8px;
+            font-weight: 900;
+            display: block;
+        }
+
+        /* KHUNG HIỂN THỊ LÝ THUYẾT GỐC TOÀN VẸN VÀ CHUẨN XÁC CHỮ NÀO */
+        .theory-handbook-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 22px;
+            margin-bottom: 25px;
+            border: 3px solid #8854C0;
+            box-shadow: 0 8px 0 rgba(136, 84, 192, 0.2);
+        }
+
+        .theory-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #8854C0;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 3px double #8854C0;
+            padding-bottom: 5px;
+        }
+
+        .theory-heading-main {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: #8854C0;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-left: 5px solid #8854C0;
+            padding-left: 10px;
+        }
+
+        .theory-section-title {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #E84393;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .theory-block {
+            background: #F1F2F6;
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin-bottom: 15px;
+            font-family: inherit;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        .structure-line {
+            color: #2D3436;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        .structure-highlight {
+            color: #E84393;
+            background: #FFE8F2;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .theory-example {
+            font-style: italic;
+            color: #57606F;
+            padding-left: 10px;
+            border-left: 3px solid #00C9A7;
+            margin: 6px 0;
+        }
+
+        /* THIẾT KẾ CARD CÂU HỎI TRẮC NGHIỆM */
+        .quiz-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 0 rgba(0, 0, 0, 0.06);
+            border: 3px solid #FFF;
+            position: relative;
+        }
+
+        .exam-tag-callout {
+            background: #74B9FF;
+            color: white;
+            font-weight: 900;
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
+            box-shadow: 0 3px 0 #0984E3;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .question-number {
+            background: #8854C0;
+            color: #FFF;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            margin-right: 12px;
+            font-size: 1rem;
+            box-shadow: 0 4px 0 #6c3da3;
+            flex-shrink: 0;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.5;
+            color: var(--text-main);
+            margin-top: 4px;
+        }
+
+        .choices-grid {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+        }
+
+        .choice-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: #FFF;
+            border: 3px solid #E2E8F0;
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            font-size: 1.02rem;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            font-family: inherit;
+            color: var(--text-main);
+            box-shadow: 0 6px 0 #E2E8F0;
+            transition: all 0.1s ease;
+        }
+
+        .choice-btn:hover:not(:disabled) {
+            transform: scale(1.015) translateY(-2px);
+            border-color: #B2BEC3;
+            box-shadow: 0 8px 0 #B2BEC3;
+        }
+
+        .choice-btn:active:not(:disabled) {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #B2BEC3;
+        }
+
+        .choice-prefix {
+            background: #F1F5F9;
+            border-radius: 10px;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            margin-right: 12px;
+            color: #64748B;
+            flex-shrink: 0;
+        }
+
+        /* Trạng thái Đúng (Xanh lá) / Sai (Đỏ Cam) */
+        .choice-btn.correct-state {
+            background-color: #E6FBF1 !important;
+            border-color: var(--correct-color) !important;
+            box-shadow: 0 6px 0 #00A955 !important;
+            color: #006633 !important;
+        }
+
+        .choice-btn.correct-state .choice-prefix {
+            background-color: var(--correct-color) !important;
+            color: white !important;
+        }
+
+        .choice-btn.wrong-state {
+            background-color: #FFEBEB !important;
+            border-color: var(--wrong-color) !important;
+            box-shadow: 0 6px 0 #D63031 !important;
+            color: #99222A !important;
+        }
+
+        .choice-btn.wrong-state .choice-prefix {
+            background-color: var(--wrong-color) !important;
+            color: white !important;
+        }
+
+        .shake-animation {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        /* KHUNG GIẢI THÍCH CHI TIẾT HIỂN THỊ TỨC THỜI */
+        .explanation-box {
+            margin-top: 18px;
+            background: #F8F9FA;
+            border-radius: 18px;
+            padding: 18px;
+            border-left: 6px solid #8854C0;
+            display: none;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .explanation-title {
+            font-weight: 900;
+            color: #8854C0;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .explanation-step {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #4A5568;
+        }
+
+        .step-heading {
+            font-weight: 900;
+            color: #2D3748;
+            margin-bottom: 2px;
+        }
+
+        /* NÚT NỘP BÀI TỔNG KẾT */
+        .footer-action-wrapper {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .submit-exam-btn {
+            background: #00D26A;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 16px 60px;
+            font-size: 1.35rem;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 8px 0 #00A955, 0 12px 25px rgba(0,0,0,0.15);
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+
+        .submit-exam-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 11px 0 #00A955, 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .submit-exam-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #00A955;
+        }
+
+        /* POPUP MODAL KẾT QUẢ CUỐI CÙNG */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.25s ease;
+        }
+
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-body-card {
+            background: white;
+            border-radius: 28px;
+            max-width: 500px;
+            width: 90%;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            border: 4px solid #8854C0;
+            transform: scale(0.8);
+            transition: all 0.25s ease;
+        }
+
+        .modal-overlay.active .modal-body-card {
+            transform: scale(1);
+        }
+
+        .modal-header-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #8854C0;
+            margin-bottom: 12px;
+        }
+
+        .modal-score-badge {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #00D26A;
+            margin: 15px 0;
+        }
+
+        .modal-comment-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #2D3436;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .modal-reload-btn {
+            background: #8854C0;
+            color: white;
+            border: none;
+            border-radius: 18px;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #6c3da3;
+        }
+
+        #canvas-confetti-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pattern-overlay-layer"></div>
+    <canvas id="canvas-confetti-layer"></canvas>
+
+    <div class="container">
+        <header>
+            <h1>Giáo viên tạo: Ms Lê Hằng English</h1>
+        </header>
+
+        <!-- Khung nhắc nhở quan trọng -->
+        <div class="important-notice-box">
+            <span class="notice-title">⚠️ LỜI NHẮC CỰC KỲ QUAN TRỌNG ⚠️</span>
+            <span class="notice-content">
+                Chỉ có đọc kỹ giải thích ngay sau mỗi câu, sau đó ghi lại từ vựng/cấu trúc mới vào vở để học thì mới thực sự giỏi lên.<br>
+                Làm cho xong mà không đọc giải thích hay đọc qua loa không ghi chép thì chỉ tốn thời gian vô ích!
+            </span>
+            <span class="notice-footer">* Kéo tới đâu, làm tới đó! *</span>
+        </div>
+
+        <!-- SỔ TAY LÝ THUYẾT GỐC CHUẨN XÁC NỘI DUNG BAN ĐẦU -->
+        <div class="theory-handbook-card">
+            <div class="theory-title">📚 SỔ TAY LÝ THUYẾT CHUYÊN ĐỀ ĐẢO NGỮ</div>
+            
+            <div class="theory-heading-main">ĐẢO NGỮ SO THAT // SUCH ... THAT</div>
+            
+            <div class="theory-section-title">ĐẢO NGỮ SO ... THAT</div>
+            
+            <div class="theory-block">
+                <div style="color: #8854C0; margin-bottom: 4px;">Trường hợp 1:</div>
+                <div class="structure-line">Cấu trúc gốc: <b>S₁ + be + so + adj + that + S2 + Verb</b></div>
+                <div class="structure-line">👉 Đảo ngữ: <span class="structure-highlight">So + Adj + be + S1 + that + S2 + Verb + Obj</span></div>
+                <div class="theory-example">EX: The sea was so tough that the children could not go swimming.</div>
+                <div class="theory-example" style="color: #8854C0; font-weight: 900;">→ So tough was the sea that the children could not go swimming.</div>
+            </div>
+
+            <div class="theory-block">
+                <div style="color: #8854C0; margin-bottom: 4px;">Trường hợp 2:</div>
+                <div class="structure-line">Cấu trúc gốc: <b>S1 + Verb + so + adv + that + S2 + Verb</b></div>
+                <div class="structure-line">👉 Đảo ngữ: <span class="structure-highlight">So + Adv + trợ động từ + S1 + Verb + that + S2 + Verb + Obj</span></div>
+                <div class="theory-example">EX: The children ran so quickly that no one can catch them.</div>
+                <div class="theory-example" style="color: #8854C0; font-weight: 900;">→ So quickly did the children run that no one can catch them.</div>
+            </div>
+
+            <div class="theory-section-title">ĐẢO NGỮ SUCH THAT</div>
+            <div class="theory-block">
+                <div class="structure-line">Cấu trúc gốc: <b>S1 + be + such + (a/an) + adj + N + that + S2 + Verb</b></div>
+                <div class="structure-line" style="margin-top: 8px;">👉 Cách 1: <span class="structure-highlight" style="background: #E0F7FA; color: #00796B;">Such + be + (a/an) + N + that + S + V + O</span></div>
+                <div class="structure-line">👉 Cách 2: <span class="structure-highlight" style="background: #E0F7FA; color: #00796B;">Such + (a/an) + N + be + S + that + S + V + O</span></div>
+                <div class="theory-example" style="margin-top: 8px;">EX: It is such a good book that I have read twice.</div>
+                <div class="theory-example" style="color: #8854C0; font-weight: 900;">→ Such is a good book that I have read twice.</div>
+                <div class="theory-example" style="color: #8854C0; font-weight: 900;">→ Such a good book is it that I have read twice.</div>
+            </div>
+        </div>
+
+        <!-- Khu vực kết xuất tự động 7 câu hỏi trắc nghiệm Chuyên Anh -->
+        <div id="quiz-dynamic-render-target"></div>
+
+        <div class="footer-action-wrapper">
+            <button class="submit-exam-btn" onclick="processExamGrading()">🎉 NỘP BÀI THI 🎉</button>
+        </div>
+    </div>
+
+    <!-- Hộp thoại Popup tổng kết điểm số -->
+    <div class="modal-overlay" id="result-summary-popup">
+        <div class="modal-body-card">
+            <div class="modal-header-title">🏆 KẾT QUẢ KIỂM TRA 🏆</div>
+            <div class="modal-score-badge" id="score-counter-slot">0/0</div>
+            <div class="modal-comment-text" id="teacher-feedback-slot">Lời khuyên...</div>
+            <button class="modal-reload-btn" onclick="resetAndRestartQuiz()">THỬ SỨC LẠI</button>
+        </div>
+    </div>
+
+    <script>
+        // BỘ DỮ LIỆU ĐỀ BÀI HOÀN CHỈNH 100% KHÔNG CẮT XÉN CHỮ NÀO
+        const questionsDatabase = [
+            {
+                id: 1,
+                tag: "Đề thi chuyên Anh tỉnh Đồng Tháp (Năm học 2019-2020)",
+                question: "The demand was so great that they had to reprint the book immediately.",
+                display_question: "Chọn câu viết lại đúng nhất dùng cấu trúc đảo ngữ cho câu sau:<br><b>\"The demand was so great that they had to reprint the book immediately.\"</b>",
+                choices: [
+                    { text: "So great the demand was that they had to reprint the book immediately.", key: "A" },
+                    { text: "So great was the demand that they had to reprint the book immediately.", key: "B" },
+                    { text: "Such great was the demand that they had to reprint the book immediately.", key: "C" },
+                    { text: "So great did the demand be that they had to reprint the book immediately.", key: "D" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Dịch nghĩa câu gốc: 'Nhu cầu lớn đến mức họ phải tái bản cuốn sách ngay lập tức.'",
+                    step2: "Phân tích cấu trúc 4 đáp án:<br>A. So great the demand was... (Sai vì chưa đảo ngữ động từ lên trước chủ ngữ)<br>B. So great was the demand... (Đúng cấu trúc đảo ngữ)<br>C. Such great was... (Sai vì Such không đi trực tiếp với tính từ đứng đơn lẻ)<br>D. So great did the demand be... (Sai vì động từ gốc là to be 'was', không mượn trợ động từ 'did')",
+                    step3: "Tại sao chọn B? Áp dụng chính xác công thức đảo ngữ với So...that Trường hợp 1: <b>So + Adj + be + S + that...</b>. Tính từ là 'great', động từ to be quá khứ là 'was', và chủ ngữ là 'the demand'. Do đó thu được cụm 'So great was the demand...'.",
+                    step4: "Tại sao các đáp án còn lại SAI? Phương án A quên đảo vị trí của 'was'; phương án C dùng sai từ 'Such'; phương án D cố tình dùng sai trợ động từ 'did' với 'be' một cách phi ngữ pháp."
+                }
+            },
+            {
+                id: 2,
+                tag: "Đề thi học sinh giỏi truyền thống Olympic 30/04 lớp 10 năm học 2019-2020",
+                question: "The staff hated his new policies intensely and so went on strike.",
+                display_question: "Chọn câu viết lại đúng nhất sử dụng cấu trúc đảo ngữ với <b>\"So\"</b> cho câu sau:<br><b>\"The staff hated his new policies intensely and so went on strike.\"</b>",
+                choices: [
+                    { text: "So intensely did the staff hate his new policies that they went on strike.", key: "A" },
+                    { text: "So intense did the staff hate his new policies that they went on strike.", key: "B" },
+                    { text: "So intensely the staff hated his new policies that they went on strike.", key: "C" },
+                    { text: "Such intensely did the staff hate his new policies that they went on strike.", key: "D" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Dịch nghĩa câu gốc: 'Nhân viên ghét các chính sách mới của ông ta một cách dữ dội và vì thế họ đã đình công.'",
+                    step2: "Phân tích cấu trúc 4 đáp án:<br>A. So intensely did the staff hate... (Đúng chuẩn cấu trúc đảo ngữ với trạng từ)<br>B. So intense did... (Sai vì 'hate' là động từ thường, cần dùng trạng từ 'intensely' chứ không phải tính từ 'intense')<br>C. So intensely the staff hated... (Sai vì thiếu đảo ngữ trợ động từ 'did' lên trước chủ ngữ)<br>D. Such intensely did... (Sai vì cấu trúc đảo ngữ với trạng từ không bắt đầu bằng 'Such')",
+                    step3: "Tại sao chọn A? Áp dụng công thức đảo ngữ So...that Trường hợp 2 dành cho động từ thường: <b>So + Adv + trợ động từ + S + V-nguyên thể + that...</b>. Động từ trong câu gốc ở thì quá khứ 'hated' đi kèm trạng từ bổ nghĩa 'intensely'. Khi đưa lên đầu câu, ta mượn trợ động từ 'did' và đưa động từ chính về nguyên thể 'hate'.",
+                    step4: "Tại sao các đáp án còn lại SAI? B sai từ loại (tính từ thay vì trạng từ); C chưa đảo trợ động từ 'did' lên trước chủ ngữ; D dùng sai từ bắt đầu 'Such'."
+                }
+            },
+            {
+                id: 3,
+                tag: "Đề thi chuyên Anh tỉnh Quảng Bình năm học 2019-2020",
+                question: "They cancelled the flight because of the heavy rain.",
+                display_question: "Chọn câu chuyển đổi tương đương sử dụng nhuần nhuyễn cấu trúc đảo ngữ thích hợp cho câu sau:<br><b>\"They cancelled the flight because of the heavy rain.\"</b>",
+                choices: [
+                    { text: "So heavily did it rain that they cancelled the flight.", key: "A" },
+                    { text: "Such heavy rain was it that they cancelled the flight.", key: "B" },
+                    { text: "So heavy did it rain that they cancelled the flight.", key: "C" },
+                    { text: "Both A and B are correct.", key: "D" }
+                ],
+                correct: "D",
+                explanation: {
+                    step1: "Dịch nghĩa câu gốc: 'Họ đã hủy chuyến bay vì cơn mưa nặng hạt.'",
+                    step2: "Phân tích cấu trúc các đáp án:<br>A. So heavily did it rain that... (Đúng cấu trúc đảo ngữ So + Adv với hành động đổ mưa)<br>B. Such heavy rain was it that... (Đúng cấu trúc đảo ngữ Such + (a/an) + N + be + S)<br>C. So heavy did it rain... (Sai vì 'rain' là động từ thường, phải dùng trạng từ 'heavily')",
+                    step3: "Tại sao chọn D? Câu gốc mang mối quan hệ nguyên nhân - kết quả. Cả phương án A (sử dụng đảo ngữ của trạng từ: 'So heavily did it rain...') và phương án B (sử dụng đảo ngữ của cấu trúc Such...that với cụm danh từ 'heavy rain': 'Such heavy rain was it that...') đều đúng ngữ pháp 100%. Do đó chọn D.",
+                    step4: "Tại sao C SAI? Vì phương án C phạm lỗi từ loại, sử dụng tính từ 'heavy' để bổ nghĩa cho động từ thường 'rain'."
+                }
+            },
+            {
+                id: 4,
+                tag: "Đề Thi chuyên Anh Hồ Chí Minh Năm 2015-2016",
+                question: "The wind was so strong that we couldn't walk. (HARDLY)",
+                display_question: "Chọn câu viết lại đúng nhất sử dụng từ gợi ý <b>HARDLY</b> và cấu trúc đảo ngữ <b>\"Such\"</b> cho câu sau:<br><b>\"The wind was so strong that we couldn't walk.\"</b>",
+                choices: [
+                    { text: "Such strong was the wind that we could hardly walk.", key: "A" },
+                    { text: "Such was the strength of the wind that we could hardly walk.", key: "B" },
+                    { text: "Such a strong wind was it that we couldn't hardly walk.", key: "C" },
+                    { text: "Such was the strong wind that we could hardly walk.", key: "D" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Dịch nghĩa câu gốc: 'Gió mạnh đến nỗi chúng tôi không thể đi bộ được.' (Từ khóa 'hardly' nghĩa là hầu như không).",
+                    step2: "Phân tích cấu trúc các đáp án:<br>A. Such strong was... (Sai vì Such không đi trực tiếp với một tính từ đứng đơn lẻ)<br>B. Such was the strength of the wind... (Đúng chuẩn công thức đảo ngữ Such với danh từ)<br>C. ...couldn't hardly walk (Sai cấu trúc phủ định kép vì bản thân 'hardly' đã mang nghĩa phủ định)<br>D. Such was the strong wind... (Chưa lột tả chuẩn xác ý nghĩa nhấn mạnh cấu trúc bằng cách dùng danh từ trừu tượng 'the strength')",
+                    step3: "Tại sao chọn B? Áp dụng cấu trúc đảo ngữ nâng cao với Such: <b>Such + be + N + that...</b> (Cái gì đó lớn lao đến mức...). Ta chuyển tính từ 'strong' thành danh từ tương ứng là 'the strength'. Vế sau sử dụng 'could hardly walk' thay thế cho 'couldn't walk' để giữ trọn nghĩa gốc.",
+                    step4: "Tại sao các đáp án còn lại SAI? A sai cấu trúc từ loại sau 'Such'. C dính lỗi phủ định kép (*double negative*). D sai sắc thái diễn đạt đặc trưng."
+                }
+            },
+            {
+                id: 5,
+                tag: "Đề Thi chuyên Anh Hồ Chí Minh Năm 2016-2017",
+                question: "Due to the danger of virus infiltration, we have to be cautious when sharing information. (PRECAUTION)",
+                display_question: "Chọn câu viết lại đúng nhất bắt đầu bằng cụm từ <b>\"So dangerous\"</b> và áp dụng danh từ <b>\"PRECAUTION\"</b>:<br><b>\"Due to the danger of virus infiltration, we have to be cautious when sharing information.\"</b>",
+                choices: [
+                    { text: "So dangerous is virus infiltration that we have to take precautions when sharing information.", key: "A" },
+                    { text: "So dangerous virus infiltration is that we have to make precautions when sharing information.", key: "B" },
+                    { text: "So dangerous is virus infiltration that we have to do precautions when sharing information.", key: "C" },
+                    { text: "Such dangerous is virus infiltration that we have to take precautions when sharing information.", key: "D" }
+                ],
+                correct: "A",
+                explanation: {
+                    step1: "Dịch nghĩa câu gốc: 'Do mối nguy hiểm của sự xâm nhập virus, chúng ta phải cẩn trọng khi chia sẻ thông tin.' (Từ khóa 'precaution' có nghĩa là biện pháp phòng ngừa).",
+                    step2: "Phân tích cấu trúc các đáp án:<br>A. So dangerous is virus infiltration that... (Đúng ngữ pháp và đi liền cụm collocation chuẩn)<br>B. So dangerous virus infiltration is... (Sai vì chưa thực hiện đảo động từ 'is' lên trước chủ ngữ)<br>C. ...do precautions (Sai collocation vì không ai nói 'do precautions')<br>D. Such dangerous is... (Sai vì 'Such' không đi trực tiếp với tính từ 'dangerous' đứng đầu câu)",
+                    step3: "Tại sao chọn A? Câu kết hợp hai kiến thức nâng cao: Cấu trúc đảo ngữ So...that (<b>So + Adj + be + S + that...</b>) tạo thành 'So dangerous is virus infiltration that...'; và cụm từ cố định (Collocation): <b>take precautions</b> (thực hiện các biện pháp phòng ngừa). Do đó phương án A hoàn hảo nhất.",
+                    step4: "Tại sao các đáp án còn lại SAI? B sai trật tự từ đảo ngữ; C dùng sai động từ đi kèm danh từ precautions; D phá vỡ nguyên lý kết hợp từ loại của 'Such'."
+                }
+            },
+            {
+                id: 6,
+                tag: "Đề Thi chuyên Anh Hồ Chí Minh Năm 2017-2018",
+                question: "The rescue attempt had to be cancelled because the storm was so severe. (CALLED)",
+                display_question: "Chọn câu viết lại đúng nhất sử dụng từ gợi ý <b>CALLED</b> và cấu trúc đảo ngữ <b>\"Such\"</b> cho câu sau:<br><b>\"The rescue attempt had to be cancelled because the storm was so severe.\"</b>",
+                choices: [
+                    { text: "Such severe was the storm that the rescue attempt had to be called off.", key: "A" },
+                    { text: "Such was the severity of the storm that the rescue attempt had to be called off.", key: "B" },
+                    { text: "Such was the severe of the storm that the rescue attempt had to be called in.", key: "C" },
+                    { text: "Such severity was the storm that the rescue attempt had to be called off.", key: "D" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Dịch nghĩa câu gốc: 'Nỗ lực giải cứu đã phải bị hủy bỏ bởi vì trận bão quá dữ dội.' (Cụm động từ 'call off' đồng nghĩa với 'cancel' - hủy bỏ).",
+                    step2: "Phân tích cấu trúc các đáp án:<br>A. Such severe was... (Sai vì 'Such' không đứng trước tính từ đơn lập)<br>B. Such was the severity of the storm... (Đúng chuẩn cấu trúc đảo ngữ với cụm danh từ kết hợp cụm động từ 'called off' chính xác)<br>C. Such was the severe... (Sai vì 'severe' là tính từ, không đứng sau mạo từ 'the' làm danh từ được)<br>D. Such severity was the storm... (Sai trật tự cấu trúc ngữ pháp đảo ngữ)",
+                    step3: "Tại sao chọn B? Ta vận dụng cấu trúc đảo ngữ của Such: <b>Such + be + cụm danh từ + that...</b>. Biến đổi tính từ 'severe' thành danh từ tương ứng là 'the severity' (sự dữ dội), tạo thành 'Such was the severity of the storm that...'. Đồng thời thế chỗ động từ 'cancelled' bằng cụm phrasal verb <b>called off</b> chuẩn xác.",
+                    step4: "Tại sao các đáp án còn lại SAI? A và C dùng sai từ loại; C dùng sai phrasal verb 'called in' (gọi đến/thu hồi) làm biến đổi hoàn toàn nghĩa gốc; D sắp xếp cấu trúc lộn xộn."
+                }
+            },
+            {
+                id: 7,
+                tag: "Đề Thi chuyên Anh Hồ Chí Minh Năm 2018-2019",
+                question: "Jack was so nervous that his mind couldn't function properly. [straight]",
+                display_question: "Chọn câu viết lại đúng nhất kết hợp từ gợi ý <b>[straight]</b> và cấu trúc đảo ngữ với <b>\"Such\"</b>:<br><b>\"Jack was so nervous that his mind couldn't function properly.\"</b>",
+                choices: [
+                    { text: "Such nervous was Jack that he couldn't think straight.", key: "A" },
+                    { text: "Such was Jack's nervousness that he couldn't think straight.", key: "B" },
+                    { text: "Such was Jack's nervous that his mind couldn't think straight.", key: "C" },
+                    { text: "Such nervousness did Jack have that his mind couldn't function straight.", key: "D" }
+                ],
+                correct: "B",
+                explanation: {
+                    step1: "Dịch nghĩa câu gốc: 'Jack lo lắng đến nỗi tâm trí anh ấy không thể hoạt động bình thường.' (Ta có idiom kinh điển: <b>think straight</b> nghĩa là suy nghĩ thông suốt, tỉnh táo).",
+                    step2: "Phân tích cấu trúc các đáp án:<br>A. Such nervous was... (Sai từ loại vì sau 'Such' không đi với tính từ 'nervous')<br>B. Such was Jack's nervousness... (Đúng chuẩn cấu trúc đảo ngữ Such + be + N và kết hợp idiom chuẩn xác)<br>C. Such was Jack's nervous... (Sai từ loại vì sau sở hữu cách 'Jack's' phải là một danh từ)<br>D. Such nervousness did Jack have... (Cấu trúc rườm rà và biến đổi làm mất đi tính cô đọng của câu)",
+                    step3: "Tại sao chọn B? Cấu trúc đảo ngữ viết lại hoàn chỉnh: <b>Such + be + danh từ sở hữu + that...</b>. Ta biến đổi tính từ 'nervous' thành danh từ trừu tượng chỉ cảm xúc: 'nervousness' (sự lo lắng), tạo nên vế đầu: 'Such was Jack's nervousness that...'. Vế sau dùng cụm diễn đạt thành ngữ thay thế: <b>couldn't think straight</b>.",
+                    step4: "Tại sao các đáp án còn lại SAI? A và C đều dính lỗi về từ loại ngữ pháp (dùng tính từ thay vì danh từ); D biến đổi đi lòng vòng không đúng trọng tâm biểu đạt tinh gọn."
+                }
+            }
+        ];
+
+        let answersLogTracker = {};
+
+        // KHỞI TẠO HỆ THỐNG ÂM THANH NỘI BỘ TỰ ĐỘNG BẰNG WEB AUDIO API
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function emitCorrectChimeSound() {
+            try {
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, now); // C5
+                osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+                osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+                osc.frequency.setValueAtTime(1046.50, now + 0.24); // C6
+                gain.gain.setValueAtTime(0, now);
+                gain.gain.linearRampToValueAtTime(0.25, now + 0.05);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.start(now); osc.stop(now + 0.5);
+            } catch(err) { console.log(err); }
+        }
+
+        function emitWrongBuzzSound() {
+            try {
+                const now = audioCtx.currentTime;
+                const frequencies = [392.00, 349.23, 261.63]; 
+                frequencies.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, now + (idx * 0.12));
+                    gain.gain.setValueAtTime(0, now + (idx * 0.12));
+                    gain.gain.linearRampToValueAtTime(0.2, now + (idx * 0.12) + 0.02);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + (idx * 0.12) + 0.14);
+                    osc.connect(gain); gain.connect(audioCtx.destination);
+                    osc.start(now + (idx * 0.12)); osc.stop(now + (idx * 0.12) + 0.14);
+                });
+            } catch(err) { console.log(err); }
+        }
+
+        // HIỆU ỨNG PHÁO GIẤY RỰC RỠ CANVAS (CONFETTI CELEBRATION)
+        function launchConfettiCelebration() {
+            const canvas = document.getElementById('canvas-confetti-layer');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            
+            let particles = [];
+            const paletteColors = ['#FFC107', '#FF5722', '#E91E63', '#9C27B0', '#00C9A7', '#00D26A', '#8854C0'];
+            
+            for (let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    radius: Math.random() * 5 + 4,
+                    density: Math.random() * canvas.height,
+                    color: paletteColors[Math.floor(Math.random() * paletteColors.length)],
+                    tilt: Math.random() * 10 - 5,
+                    tiltIncremental: Math.random() * 0.05 + 0.02,
+                    angle: 0
+                });
+            }
+            
+            function animateConfettiFrame() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let continueAnimation = false;
+                particles.forEach((p) => {
+                    p.angle += p.tiltIncremental;
+                    p.y += (Math.cos(p.density) + 3 + p.radius / 2) / 1.8;
+                    p.x += Math.sin(p.angle);
+                    
+                    if (p.y <= canvas.height) continueAnimation = true;
+                    
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                });
+                if (continueAnimation) requestAnimationFrame(animateConfettiFrame);
+            }
+            animateConfettiFrame();
+        }
+
+        // THUẬT TOÁN SHUFFLE MẢNG ĐÁP ÁN (FISHER-YATES ALGORITHM CHUẨN XÁC)
+        function shuffleArrayChoices(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                const temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        }
+
+        // TIẾN HÀNH GENERATE TOÀN BỘ BÀI THI LÊN WEB
+        function renderInteractiveQuiz() {
+            const containerZone = document.getElementById('quiz-dynamic-render-target');
+            containerZone.innerHTML = '';
+            
+            questionsDatabase.forEach((q, idx) => {
+                const cardNode = document.createElement('div');
+                cardNode.className = 'quiz-card';
+                cardNode.id = `card-wrapper-id-${q.id}`;
+                
+                let shuffledChoices = [...q.choices];
+                shuffleArrayChoices(shuffledChoices);
+                
+                let choicesHtmlContent = '';
+                shuffledChoices.forEach(choice => {
+                    choicesHtmlContent += `
+                        <button class="choice-btn" id="btn-choice-item-${q.id}-${choice.key}" onclick="evaluateUserChoice(${q.id}, '${choice.key}', '${q.correct}')">
+                            <span class="choice-prefix">${choice.key}</span>
+                            <span class="choice-body-text">${choice.text}</span>
+                        </button>
+                    `;
+                });
+
+                cardNode.innerHTML = `
+                    <div class="exam-tag-callout">🏛️ ${q.tag}</div>
+                    <div class="question-header">
+                        <div class="question-number">${idx + 1}</div>
+                        <div class="question-text">${q.display_question}</div>
+                    </div>
+                    <div class="choices-grid" id="choices-grid-box-id-${q.id}">
+                        ${choicesHtmlContent}
+                    </div>
+                    
+                    <div class="explanation-box" id="explanation-box-view-id-${q.id}">
+                        <div class="explanation-title">💡 PHẦN GIẢI THÍCH CHI TIẾT CỦA MS LÊ HẰNG:</div>
+                        <div class="explanation-step">
+                            <div class="step-heading">🔹 Bước 1: Dịch câu hỏi sang tiếng Việt</div>
+                            <div>${q.explanation.step1}</div>
+                        </div>
+                        <div class="explanation-step">
+                            <div class="step-heading">🔹 Bước 2: Liệt kê và phân tích các đáp án</div>
+                            <div>${q.explanation.step2}</div>
+                        </div>
+                        <div class="explanation-step">
+                            <div class="step-heading">🔹 Bước 3: Tại sao đáp án đúng là đúng?</div>
+                            <div style="font-weight: 700; color: #00A955;">${q.explanation.step3}</div>
+                        </div>
+                        <div class="explanation-step">
+                            <div class="step-heading">🔹 Bước 4: Tại sao các đáp án còn lại SAI?</div>
+                            <div>${q.explanation.step4}</div>
+                        </div>
+                    </div>
+                `;
+                containerZone.appendChild(cardNode);
+            });
+        }
+
+        // XỬ LÝ CHẤM ĐIỂM VÀ HIỂN THỊ KẾT QUẢ TỨC THỜI KHI BẤM CHỌN
+        function evaluateUserChoice(questionId, chosenKey, correctKey) {
+            if (answersLogTracker[questionId] !== undefined) return;
+            
+            answersLogTracker[questionId] = chosenKey;
+            const targetBtnNode = document.getElementById(`btn-choice-item-${questionId}-${chosenKey}`);
+            const correctBtnNode = document.getElementById(`btn-choice-item-${questionId}-${correctKey}`);
+            const parentCardNode = document.getElementById(`card-wrapper-id-${questionId}`);
+            
+            if (chosenKey === correctKey) {
+                targetBtnNode.classList.add('correct-state');
+                emitCorrectChimeSound();
+                launchConfettiCelebration();
+            } else {
+                targetBtnNode.classList.add('wrong-state');
+                if (correctBtnNode) correctBtnNode.classList.add('correct-state');
+                parentCardNode.classList.add('shake-animation');
+                emitWrongBuzzSound();
+                setTimeout(() => parentCardNode.classList.remove('shake-animation'), 450);
+            }
+
+            const childrenButtons = document.getElementById(`choices-grid-box-id-${questionId}`).getElementsByClassName('choice-btn');
+            for (let btn of childrenButtons) { btn.disabled = true; }
+
+            document.getElementById(`explanation-box-view-id-${questionId}`).style.display = 'block';
+        }
+
+        // TÍNH ĐIỂM TỔNG KẾT
+        function processExamGrading() {
+            let correctCount = 0;
+            const totalQuestionsCount = questionsDatabase.length;
+            
+            questionsDatabase.forEach(q => {
+                if (answersLogTracker[q.id] === q.correct) {
+                    correctCount++;
+                }
+            });
+
+            const rawSuccessPercentage = (correctCount / totalQuestionsCount) * 100;
+            const scoreDisplaySlot = document.getElementById('score-counter-slot');
+            const commentDisplaySlot = document.getElementById('teacher-feedback-slot');
+
+            scoreDisplaySlot.innerText = `${correctCount} / ${totalQuestionsCount}`;
+
+            if (rawSuccessPercentage < 50) {
+                commentDisplaySlot.innerText = "Điểm lần này chưa cao lắm, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau! 💕";
+            } else if (rawSuccessPercentage >= 60 && rawSuccessPercentage <= 80) {
+                commentDisplaySlot.innerText = "Con đã có tiến bộ khá ổn rồi, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!🌟";
+            } else {
+                commentDisplaySlot.innerText = "Làm tốt lắm, con cố gắng ring điểm 10 ở lần sau nha! 🎉💎";
+            }
+
+            document.getElementById('result-summary-popup').classList.add('active');
+        }
+
+        function resetAndRestartQuiz() {
+            document.getElementById('result-summary-popup').classList.remove('active');
+            answersLogTracker = {};
+            renderInteractiveQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onload = () => {
+            renderInteractiveQuiz();
+        };
+    </script>
+</body>
+</html>
